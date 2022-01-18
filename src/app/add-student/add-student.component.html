@@ -1,0 +1,96 @@
+<button class="btn btn-success" [routerLink]="['/students']" style="margin: 10px 0 10px 10px;">
+    <span><i class='fas fa-angle-left'></i></span>
+</button>
+
+<div class="container">
+    <div [hidden]="submitted">
+        <h1>Student Details</h1>
+        <form (ngSubmit)="onSubmit()" #studentForm="ngForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" required [(ngModel)]="model.name" name="name" #name="ngModel"/>
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                    Name is required
+                </div>
+            </div> 
+            <div class="form-group">    
+                <label for="city">City</label>
+                <select class="form-control" id="city" required [(ngModel)]="model.city" name="city" #city="ngModel">
+                    <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+                </select>
+                <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+                    City is required
+                </div>
+            </div>
+            <div class="form-group">    
+                <label for="age">Age</label>
+                <input type="text" id="age" class="form-control" required [(ngModel)]="model.age" name="age" #age="ngModel"/>
+                <div [hidden]="age.valid || age.pristine" class="alert alert-danger">
+                    Age is required
+                </div>
+            </div>
+            <div class="form-group">    
+                <label for="batch">Batch</label>
+                <input type="text" id="batch" class="form-control" required [(ngModel)]="model.batch" name="batch" #batch="ngModel"/>
+                <!-- <div [hidden]="batch.valid || batch.pristine" class="alert alert-danger">
+                    Batch is required
+                </div> -->
+            </div>
+            <div class="form-group">    
+                <label for="address">Address</label>
+                <input type="text" id="address" class="form-control" required [(ngModel)]="model.address" name="address" #address="ngModel"/>
+                <!-- <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+                    Address is required
+                </div> -->
+            </div>
+            <div class="form-group">    
+                <label for="dateOfBirth">Date of Birth</label>
+                <input type="date" id="dateOfBirth" class="form-control" required [(ngModel)]="model.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel"/>
+                <!-- <div [hidden]="dateOfBirth.valid || dateOfBirth.pristine" class="alert alert-danger">
+                    Batch is required
+                </div> -->
+            </div>
+            <div class="form-group">    
+                <label for="fatherName">Father Name</label>
+                <input type="text" id="fatherName" class="form-control" required [(ngModel)]="model.fatherName" name="fatherName" #fatherName="ngModel"/>
+                <!-- <div [hidden]="fatherName.valid || fatherName.pristine" class="alert alert-danger">
+                    Father Name is required
+                </div> -->
+            </div>
+            <div class="form-group">    
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender" required [(ngModel)]="model.gender" name="gender" #gender="ngModel">
+                    <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+                </select>
+                <!-- <div [hidden]="gender.valid || gender.pristine" class="alert alert-danger">
+                    Gender is required
+                </div> -->
+            </div>
+            <div class="form-group">    
+                <label for="rollNumber">Roll Number</label>
+                <input type="text" id="rollNumber" class="form-control" required [(ngModel)]="model.rollNumber" name="rollNumber" #rollNumber="ngModel"/>
+                <!-- <div [hidden]="rollNumber.valid || rollNumber.pristine" class="alert alert-danger">
+                    Roll Number is required
+                </div> -->
+            </div>
+            <div class="form-group">    
+                <label for="degreeStatus">Degree Status</label>
+                <select class="form-control" id="degreeStatus" required [(ngModel)]="model.degreeStatus" name="degreeStatus" #degreeStatus="ngModel">
+                    <option *ngFor="let degreeStatus of degreeStatusList" [value]="degreeStatus">{{degreeStatus}}</option>
+                </select>
+                <!-- <div [hidden]="degreeStatus.valid || degreeStatus.pristine" class="alert alert-danger">
+                    Degree Status is required
+                </div> -->
+            </div>
+
+            <button type="submit" class="btn btn-success" [disabled]="!studentForm.form.valid">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- <p *ngIf="condition; else elseBlock">Condition is true</p>
+<ng-template #elseBlock>
+    <h1>
+        Else block
+    </h1>
+</ng-template> -->

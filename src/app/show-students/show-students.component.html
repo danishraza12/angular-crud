@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<table class="table table-striped th-sm">
+    <thead>
+      <tr>
+        <th scope="col" class="th-sm">S.No</th>
+        <th scope="col" class="th-sm">Name</th>
+        <th scope="col" class="th-sm">Age</th>
+        <th scope="col" class="th-sm">City</th>
+        <th scope="col" class="th-sm">Batch</th>
+        <th scope="col" class="th-sm">Address</th>
+        <th scope="col" class="th-sm">Date of Birth</th>
+        <th scope="col" class="th-sm">Father Name</th>
+        <th scope="col" class="th-sm">Gender</th>
+        <th scope="col" class="th-sm">Roll Number</th>
+        <th scope="col" class="th-sm">Degree Status</th>
+        <th scope="col" class="th-sm">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of fetchedStudents;let indexOfStudent=index;">
+        <th scope="row">{{indexOfStudent+1}}</th>
+        <td>{{student.name}}</td>
+        <td>{{student.age}}</td>
+        <td>{{student.city}}</td>
+        <td>{{student.batch}}</td>
+        <td>{{student.address}}</td>
+        <td>{{student.dateOfBirth}}</td>
+        <td>{{student.fatherName}}</td>
+        <td>{{student.gender}}</td>
+        <td>{{student.rollNumber}}</td>
+        <td>{{student.degreeStatus}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="editStudent(student);">
+            <span><i class="fas fa-edit"></i></span>
+          </button>
+          <button href="#" class="btn btn-danger" style="margin: 0 0 0 10px;" (click)="deleteStudent(student.id);">
+            <span><i class="fas fa-trash"></i></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<router-outlet></router-outlet>
